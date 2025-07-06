@@ -1,0 +1,138 @@
+body {                                       /* genel stil ayarları */
+  margin: 0;                                 /* kenar boşluklarını sıfırla */    
+  font-family: 'Open Sans', sans-serif;      /* yazı tipi ayarı */
+  background-color: #f4f1ec;               /* arka plan rengi */   
+  color: #222;                             /* metin rengi */
+}
+
+header {                                /* başlık stili */  
+  background-color: #1c2e4a;          /* başlık arka plan rengi */  
+  color: white;                       /* başlık metin rengi */     
+  padding: 20px 40px;                   /* başlık iç boşluk */
+  display: flex;                        /* esnek düzen */
+  flex-wrap: wrap;                      /* esnek düzenin satırları sarma */
+  justify-content: space-between;       /* başlık içeriğini yatayda yayma */
+  align-items: center;                  /* başlık içeriğini dikeyde ortalama */
+  gap: 15px;
+}
+
+.logo {                               /* logo stili */
+  font-family: 'Cinzel', serif;       /* logo yazı tipi */
+  font-size: 1.8rem;                  /* logo yazı boyutu */
+}
+
+.search-container {             /* arama kutucuğu stili */
+  display: flex;                /* esnek düzen */
+  align-items: center;          /* dikey ortalama */
+  gap: 5px;                     /* arama kutucuğu ve buton arasındaki boşluk */
+}
+
+.search-container input[type="text"] {      /* arama kutucuğu stili */
+  background-color: #fff;                 /* arka plan rengi */
+  padding: 6px 10px;                        /* iç boşluk */
+  border-radius: 4px;                       /* köşe yuvarlama */
+  border: none;                             /* kenar çizgisi yok */  
+  font-size: 1rem;                          /* yazı boyutu */    
+  outline: none;                            /* odaklanıldığında kenar çizgisi yok */    
+  width: 200px;                             /* genişlik */       
+}
+
+.search-container button {                  /* arama butonu stili */
+  background-color: transparent;            /* arka plan rengi */
+  border: none;                             /* kenar çizgisi yok */
+  padding: 7px 12px;                        /* iç boşluk */  
+  border-radius: 4px;                       /* köşe yuvarlama */
+  cursor: pointer;                          /* imleç değişimi */
+  font-size: 1.1rem;                        /* yazı boyutu */
+  color: white;                           /* metin rengi */
+  transition: background-color 0.3s ease;   /* hover efekti için geçiş süresi */
+}
+
+.search-container button:hover {    /* arama butonu hover efekti */
+  background-color: white;        /* hoverda arka plan rengi */
+  color: #1c2e4a;                 /* hoverda metin rengi */
+}   
+
+nav ul {            /* menü bağlantılarının bulunduğu liste stili */
+  list-style: none; /* liste işaretlerini kaldır */
+  display: flex;    /* yatay düzen */
+  gap: 15px;        /* bağlantılar arasındaki boşluk */
+  margin: 0;        /* liste dışı boşluk */
+  padding: 0;       /* liste içi boşluk */
+}
+
+nav a {                     /* menü bağlantı stili */
+  color: white;           /* metin rengi */
+  text-decoration: none;    /* alt çizgi yok */
+  font-weight: bold;        /* kalın yazı */
+}
+
+.hero {                         /* hero alanı stili */
+  text-align: center;           /* metin ortalama */
+  padding: 60px 20px;           /* iç boşluk */
+  background-image: url('https://www.aviontourism.com/images/1920-900-fix/614d1206-2c22-4403-bb05-d74c77906f77');   /* arka plan resmi */
+  background-size: cover;       /* arka plan resmi boyutu */
+  background-position: center;  /* arka plan resmi konumu */
+  background-repeat: no-repeat; /* arka plan resmi tekrarı */
+  color: white;               /* metin rengi */
+  font-family: 'Cinzel', serif; /* başlık yazı tipi */
+}
+
+.hero h1 {                          /* hero alanındaki başlık stili */
+  font-size: 2.5rem;                /* yazı boyutu */
+  margin-bottom: 10px;              /* başlık alt boşluk */
+  text-shadow: 2px 2px 4px #000;  /* metin gölgesi */
+}
+
+.hero p {                           /* hero alanındaki açıklama metni stili */
+  font-size: 1.2rem;                /* yazı boyutu */
+  text-shadow: 1px 1px 3px #000;  /* metin gölgesi */
+}
+
+.categories {           /* kategori kutucuklarının bulunduğu alan stili */
+  display: grid;        /* grid düzeni kullanımı */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* otomatik sütun genişliği */
+  gap: 20px;            /* kutucuklar arasındaki boşluk */
+  padding: 40px;        /* kategori alanı iç boşluk */
+} 
+
+.category {                         /* kategori kutucuğu stili */
+  background-color: #fff;         /* kategori arka plan rengi */
+  border: 2px solid #d4af37;      /* kategori kenar çizgisi */
+  border-radius: 8px;               /* kategori köşe yuvarlama */
+  padding: 20px;                    /* kategori iç boşluk */
+  font-size: 1.1rem;                /* kategori yazı boyutu */
+  text-align: center;               /* kategori metin hizalama */
+  font-weight: bold;                /* kategori yazı kalınlığı */
+  cursor: pointer;                  /* kategori üzerine gelindiğinde imleç değişimi */
+  transition: transform 0.2s ease;  /* kategori hover efekti için geçiş süresi */
+  user-select: none;                /* kategori metin seçimini engelleme */
+}
+
+.category:hover {               /* kategori kutucuğu hover efekti */
+  transform: scale(1.03);       /* hoverda büyüme efekti */
+  background-color: #fdf6e3;  /* hoverda arka plan rengi değişimi */
+}
+ 
+.content-area {                    /* içerik alanı stili */
+  padding: 30px 40px;              /* içerik alanı iç boşluk */
+  font-size: 1.1rem;               /* içerik yazı boyutu */
+  line-height: 1.6;                /* satır yüksekliği */
+  background-color: #fffef9;     /* içerik arka plan rengi */
+  border-top: 2px solid #d4af37; /* üst kenar çizgisi */
+  margin-top: -10px;               /* üst boşluk */
+}   
+
+footer {                       /* altbilgi stili */
+  text-align: center;          /* metin ortalama */
+  padding: 20px;               /* altbilgi iç boşluk */
+  background-color: #1c2e4a; /* altbilgi arka plan rengi */
+  color: white;              /* altbilgi metin rengi */
+  font-size: 0.9rem;           /* altbilgi yazı boyutu */
+}
+
+img {                  /* resim stili */
+  max-width: 50%;      /* resim genişliği */
+  border-radius: 8px;  /* resim köşe yuvarlama */ 
+  margin-top: 15px;    /* resim üst boşluk */
+}
