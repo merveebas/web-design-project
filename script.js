@@ -11,7 +11,7 @@ const categoryContents = {
   `,
   "🏘️ Semt Kültürü": `
     <h2>Semt Kültürü</h2>
-    <p>Karaköy'ün modern havası, Balat'ın tarih kokan sokakları... Her semtin kendine has bir hikayesi vardır. İstanbul’un ruhu,
+    <p>Her semtin kendine has bir hikayesi vardır. İstanbul’un ruhu,
     sadece tarihle değil; her biri ayrı bir dünya olan semtleriyle yaşar. Bu şehir, kültürün sadece müzelerde ya da kitaplarda değil, 
     sokakta, bakkalda, kahvede, pazarda, yani yaşamın içinde şekillendiğini gösterir.</p>
     <img src="https://visitturkey.in/wp-content/uploads/2024/07/beyoglu-istanbul-1200x1200.webp" alt="Balat Semti" />
