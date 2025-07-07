@@ -7,7 +7,7 @@ const categoryContents = {
     Roma İmparatorluğu döneminde “Nova Roma”, Bizans döneminde “Konstantinopolis”, Osmanlı döneminde ise “Der Saadet”
     (mutluluk kapısı) adlarıyla anılmış bu kadim şehir, üç kıtanın birleştiği noktada, stratejik konumu sayesinde 
     yüzyıllarca imparatorlukların gözdesi olmuştur.</p>
-    <img src="https://meditravel.com/wp-content/uploads/2019/07/istanbul-a-city-that-never-sleeps.jpg" alt="İstanbul Tarihi" />
+    <img src="https://media.istockphoto.com/id/1499025854/tr/foto%C4%9Fraf/touristic-sightseeing-ships-in-istanbul-city-turkey.jpg?s=612x612&w=0&k=20&c=DACaBiPteLi0jkW2ODo7ehYWNhIs178w4XZhD0UODVc=" alt="İstanbul Tarihi" />
   `,
   "🏘️ Semt Kültürü": `
     <h2>Semt Kültürü</h2>
