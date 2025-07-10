@@ -1,19 +1,19 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy static content to Pages #Bu satır workflow'un adıdır. GitHub Actions sekmesinde bu isimle görünecek
 
 on:
   # Runs on pushes targeting the default branch
-  push:
+  push:    # main (veya varsayılan) dalına bir push işlemi yapıldığında bu workflow tetiklenir.
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: #Bu satır sayesinde GitHub Actions sekmesinden manuel olarak başlatılabilir.
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: # Bu, otomasyonun GitHub Pages'e deployment (yayınlama) yapabilmesi için gerekli izinleri belirtir.
+  contents: read # Repo içeriğini okuma izni.
+  pages: write # GitHub Pages'e yazma/deploy etme izni.
+  id-token: write # Kimlik doğrulama için gereken token oluşturma yetkisi.
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
