@@ -1,38 +1,26 @@
-name: Auto PR Example
+name: PR Yardımcısı
 
 on:
-  push:
-    branches: [main]
+  # Sadece "main" dalını hedefleyen pull request'ler açıldığında tetiklenir
+  pull_request:
+    branches: [ "main" ]
+    types: [opened]
 
 permissions:
-  contents: write       # Branch'e commit atmak için
-  pull-requests: write  # PR oluşturmak ve düzenlemek için
+  pull-requests: write # Pull request'e yorum yazma izni
 
 jobs:
-  create-pull-request:
+  post-comment:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Create new file
-        run: echo "Yeni içerik $(date)" >> otomatik.txt
-
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git checkout -b auto-pr-branch
-          git add otomatik.txt
-          git commit -m "Yeni dosya eklendi"
-          git push origin auto-pr-branch
-
-      - name: Open pull request
-        uses: peter-evans/create-pull-request@v5
+      - name: PR'a karşılama yorumu ekle
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: main
-          head: auto-pr-branch
-          title: "Otomatik PR: Yeni Dosya"
-          body: "Bu PR otomatik olarak oluşturulmuştur."
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Merhaba! 👋 Pull request için teşekkürler. Kodlarını en kısa sürede inceleyeceğiz. ✨'
+            })
+
