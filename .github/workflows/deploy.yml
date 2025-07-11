@@ -1,38 +1,32 @@
-name: Deploy static content to Pages #Bu satır workflow'un adıdır. GitHub Actions sekmesinde bu isimle görünecek
+name: Deploy to GitHub Pages
 
 on:
-  push:    # main (veya varsayılan) dalına bir push işlemi yapıldığında bu workflow tetiklenir.
-    branches: ["main"]
+  push:
+    branches:
+      - main
 
-  #workflow_dispatch: Bu satır sayesinde GitHub Actions sekmesinden manuel olarak başlatılabilir.
-
-permissions: # Bu, otomasyonun GitHub Pages'e deployment (yayınlama) yapabilmesi için gerekli izinleri belirtir.
-  contents: read # Repo içeriğini okuma izni.
-  pages: write # GitHub Pages'e yazma/deploy etme izni.
-  id-token: write # Kimlik doğrulama için gereken token oluşturma yetkisi.
-  pull_requests: write # Pull request'ler için yazma izni.
-
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+permissions:
+  contents: read    # Reponun içeriğini okuma izni
+  pages: write      # GitHub Pages'e yazma izni (yayınlama için)
+  id-token: write   # Kimlik doğrulama için gerekli
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Repo kodunu indir
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
+
+      - name: GitHub Pages ayarlarını yapılandır
+        uses: actions/configure-pages@v4
+
+      - name: Site dosyalarını yükle
         uses: actions/upload-pages-artifact@v3
         with:
-         # yükleme için tüm repository'yi kullan
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
+          path: .
+
+      - name: GitHub Pages'e deploy et
         uses: actions/deploy-pages@v4
+
+
