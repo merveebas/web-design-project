@@ -1,30 +1,37 @@
-name: Deploy to GitHub Pages
+name: Deploy static site to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # sadece main branch'ine push olunca tetiklenir
 
 permissions:
-  contents: read    # Reponun içeriğini okuma izni
-  pages: write      # GitHub Pages'e yazma izni (yayınlama için)
-  id-token: write   # Kimlik doğrulama için gerekli
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Repo kodunu indir
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: GitHub Pages ayarlarını yapılandır
-        uses: actions/configure-pages@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name: Site dosyalarını yükle
+      - name: Upload site content
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: '.'  # tüm repo kökünü yüklüyoruz (index.html vs dahil)
 
-      - name: GitHub Pages'e deploy et
+      - name: Deploy to GitHub Pages
+        id: deploy
         uses: actions/deploy-pages@v4
