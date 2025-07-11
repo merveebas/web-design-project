@@ -1,0 +1,38 @@
+name: Auto PR Example
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write       # Branch'e commit atmak için
+  pull-requests: write  # PR oluşturmak ve düzenlemek için
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create new file
+        run: echo "Yeni içerik $(date)" >> otomatik.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b auto-pr-branch
+          git add otomatik.txt
+          git commit -m "Yeni dosya eklendi"
+          git push origin auto-pr-branch
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          head: auto-pr-branch
+          title: "Otomatik PR: Yeni Dosya"
+          body: "Bu PR otomatik olarak oluşturulmuştur."
