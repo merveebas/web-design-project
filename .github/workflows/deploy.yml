@@ -1,37 +1,15 @@
-name: Deploy static site to GitHub Pages
+name: Contents Read Example
 
-on:
-  push:
-    branches:
-      - main  # sadece main branch'ine push olunca tetiklenir
+on: [push]
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+  example:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload site content
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'  # tüm repo kökünü yüklüyoruz (index.html vs dahil)
-
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Check out repo        /*bu adım, repo içeriğini kontrol eder ve çalışma alanına indirir*/
+        uses: actions/checkout@v4   /*checkout işlemi için actions/checkout@v4 kullanılır*/
+      - name: Show repo files       /*bu adım, repo içeriğini gösterir*/
+        run: ls -la                 /*ls -la komutu ile repo içeriği listelenir*/
