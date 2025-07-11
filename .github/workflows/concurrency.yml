@@ -1,0 +1,29 @@
+name: CI Kontrolleri (Concurrency Örneği)
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+# Concurrency ayarı
+concurrency:
+  # Grup adı, bu iş akışının çalıştığı pull request'e özeldir.
+  # Aynı PR'a yeni bir commit gönderildiğinde, önceki çalıştırmayı iptal eder.
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depo kodunu indir (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Testleri çalıştır (Simülasyon)
+        run: |
+          echo "Uzun süren testler başlıyor..."
+          sleep 20 # Uzun süren bir işlemi simüle et
+          echo "Testler başarıyla tamamlandı."
+

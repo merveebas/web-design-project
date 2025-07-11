@@ -7,7 +7,7 @@ body {                                       /* genel stil ayarları */
 
 header {                                /* başlık stili */  
   background-color: #1c2e4a;          /* başlık arka plan rengi */  
-  color:#d4af37 ;                       /* başlık metin rengi */     
+  color:white ;                       /* başlık metin rengi */     
   padding: 20px 40px;                   /* başlık iç boşluk */
   display: flex;                        /* esnek düzen */
   flex-wrap: wrap;                      /* esnek düzenin satırları sarma */
