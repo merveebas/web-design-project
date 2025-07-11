@@ -1,6 +1,6 @@
 name: PR Yardımcısı
 
-on:
+off:
   # Sadece "main" dalını hedefleyen pull request'ler açıldığında tetiklenir
   pull_request:
     branches: [ "main" ]

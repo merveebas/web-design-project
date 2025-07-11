@@ -1,6 +1,6 @@
 name: Otomatik Issue Etiketleyici
 
-on:
+off:
   # Yeni bir issue açıldığında tetiklenir
   issues:
     types: [opened]

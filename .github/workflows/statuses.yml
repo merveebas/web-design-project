@@ -1,6 +1,6 @@
 name: Commit Durum Kontrolcüsü
 
-on:
+off:
   pull_request:
     branches: [ "main" ]
 
